@@ -16,6 +16,7 @@ class _HeaderPartsState extends State<HeaderParts> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         topHeader(),
@@ -30,66 +31,45 @@ class _HeaderPartsState extends State<HeaderParts> {
         const SizedBox(
           height: 30,
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Column(
-            children: [
-              Row(
-                children: firstRowItems.map((item) {
-                  return _buildItem(
-                    imagePath: item['image']!,
-                    name: item['name']!,
-                    onTap: () {
-                    },
-                  );
-                }).toList(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: firstRowItems.map((item) {
+                          return _buildItem(
+                            imagePath: item['image']!,
+                            name: item['name']!,
+                            onTap: () {},
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: secondRowItems.map((item) {
+                          return _buildItem(
+                            imagePath: item['image']!,
+                            name: item['name']!,
+                            onTap: () {},
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              const SizedBox(height: 10),
-              Row(
-                children: secondRowItems.map((item) {
-                  return _buildItem(
-                    imagePath: item['image']!,
-                    name: item['name']!,
-                    onTap: () {
-                    },
-                  );
-                }).toList(),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         const SizedBox(
           height: 20,
         ),
-        // Align(
-        //   alignment: Alignment.centerLeft,
-        //   child: Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: 15),
-        //     child: Container(
-        //       width: double.infinity,
-        //       height: 60,
-        //       padding: const EdgeInsets.all(10),
-        //       decoration: BoxDecoration(
-        //         image: DecorationImage(
-        //           image: AssetImage(
-        //               AppImages.bg2), // Replace with your image asset
-        //           fit: BoxFit.cover,
-        //           opacity:
-        //               0.8, // Optional: adjust opacity if the image is too intense
-        //         ),
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Text(
-        //         'Devivery is 10% \ncheaper!',
-        //         style: TextStyle(
-        //           fontWeight: FontWeight.bold,
-        //           fontSize: 15,
-        //           color: Colors.white,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // )
       ],
     );
   }
@@ -150,10 +130,9 @@ class _HeaderPartsState extends State<HeaderParts> {
           Text(
             "Shimoga, Karnataka",
             style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: AppColors.black,
-              fontSize: 17
-            ),
+                fontWeight: FontWeight.bold,
+                color: AppColors.black,
+                fontSize: 17),
           ),
         ],
       ),
