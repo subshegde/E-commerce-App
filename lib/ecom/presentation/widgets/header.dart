@@ -10,8 +10,6 @@ class HeaderParts extends StatefulWidget {
   State<HeaderParts> createState() => _HeaderPartsState();
 }
 
-int indexCategory = 0;
-
 class _HeaderPartsState extends State<HeaderParts> {
   @override
   Widget build(BuildContext context) {
@@ -31,41 +29,36 @@ class _HeaderPartsState extends State<HeaderParts> {
         const SizedBox(
           height: 30,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+          mainAxisAlignment: MainAxisAlignment.start, // Align children to start
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Row(
-                        children: firstRowItems.map((item) {
-                          return _buildItem(
-                            imagePath: item['image']!,
-                            name: item['name']!,
-                            onTap: () {},
-                          );
-                        }).toList(),
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: secondRowItems.map((item) {
-                          return _buildItem(
-                            imagePath: item['image']!,
-                            name: item['name']!,
-                            onTap: () {},
-                          );
-                        }).toList(),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+            Column(
+              children: [
+                Row(
+                  children: firstRowItems.map((item) {
+                    return _buildItem(
+                      imagePath: item['image']!,
+                      name: item['name']!,
+                      onTap: () {},
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: secondRowItems.map((item) {
+                    return _buildItem(
+                      imagePath: item['image']!,
+                      name: item['name']!,
+                      onTap: () {},
+                    );
+                  }).toList(),
+                ),
+              ],
             ),
           ],
+          ),
         ),
         const SizedBox(
           height: 20,
