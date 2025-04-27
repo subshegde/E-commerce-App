@@ -2,6 +2,7 @@ import 'package:ecom_app/ecom/core/routing/app_navigations.dart';
 import 'package:ecom_app/ecom/core/routing/app_routes.dart';
 import 'package:ecom_app/ecom/presentation/provider/cart_provider.dart';
 import 'package:ecom_app/ecom/presentation/provider/nav_provider.dart';
+import 'package:ecom_app/ecom/presentation/provider/product_details_provider.dart';
 import 'package:ecom_app/ecom/presentation/provider/product_provider.dart';
 import 'package:ecom_app/ecom/presentation/provider/wishlist_provider.dart';
 import 'package:ecom_app/ecom/service_locator.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => sl<CartProvider>()),
         ChangeNotifierProvider(create: (_) => sl<WishlistProvider>()),
         ChangeNotifierProvider(create: (_) => NavProvider()),
+        ChangeNotifierProvider(create: (_) => sl<ProductDetailsProvider>())
       ],
       child: MaterialApp(
         navigatorKey: AppNavigator.navigatorKey,

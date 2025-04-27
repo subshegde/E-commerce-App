@@ -11,6 +11,10 @@ class AppStrings {
   static const String removeItemFromWishList = 'Item removed from the Wishlist';
   static const String addItemToCart = 'Item added to cart';
   static const String addItemToWishListMsg = 'Product is added to My Wishlist';
+  static const String alreadyinWishlistMsg = 'Item is already in your wishlist';
+  static const String alreadyinCartMsg = 'Item is already in your cart';
   static const String empBtn = 'Pay with EMI';
+  static const String error = 'Error occurred, please try again!';
+  static const String notDataFound = 'No data found';
 
 }

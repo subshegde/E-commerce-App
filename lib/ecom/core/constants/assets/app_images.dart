@@ -10,6 +10,7 @@ class AppImages {
   static const String bg2 = '${baseUrl}bg2$jpg';
 
   static const String hotdeal = '${baseUrl}hotdeal$png';
+  static const String placeholder = '${baseUrl}placeholder$png';
 
 }
 

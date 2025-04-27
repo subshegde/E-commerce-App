@@ -45,6 +45,7 @@ dependencies:
   lottie:
   shimmer:
   loading_animation_widget:
+  flexi_productimage_slider: ^1.1.1
 
 dev_dependencies:
   flutter_test:

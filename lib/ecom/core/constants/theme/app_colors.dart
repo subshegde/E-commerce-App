@@ -12,6 +12,7 @@ class AppColors {
   static const Color indigo = Colors.indigo;
   static const Color purple = Colors.purple;
   static const Color green = Colors.green;
+  static const Color amber = Colors.amber;
   static const Color golden =  Color(0xFFD4AF37);
   static const Color blue =  Color.fromARGB(255, 37, 116, 254);
 
@@ -25,5 +26,6 @@ class AppColors {
   static final Color grey700 = Colors.grey[700]!;
   static final Color grey800 = Colors.grey[800]!;
   static final Color grey900 = Colors.grey[900]!;
+  static final Color yellow700 = Colors.yellow[700]!;
 
 }

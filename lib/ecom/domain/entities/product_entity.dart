@@ -2,7 +2,7 @@ class ProductEntity {
   final dynamic id;
   final String title;
   final String description;
-  final double price;
+  final dynamic price;
   final String image;
   final dynamic ratings;
   final dynamic productNumRatings;

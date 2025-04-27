@@ -39,13 +39,10 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       final response = await apiService.fetchProducts();
 
-      // Extract the 'data' key from the response
       final Map<String, dynamic> data = response.data;
 
-      // Extract the 'best_sellers' list from 'data'
       final List<dynamic> productData = data['data']['best_sellers']; 
 
-      // Map the list to ProductEntity objects
       List<ProductEntity> products = productData.map((e) => ProductModel.fromJson(e)).toList();
 
       return Right(products);

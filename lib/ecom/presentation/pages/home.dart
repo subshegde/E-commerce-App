@@ -22,7 +22,7 @@ class HomePageMain extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: SafeArea(child: tabs[selectedIndex]),
       bottomNavigationBar: Container(
         color: AppColors.white,
@@ -40,7 +40,7 @@ class HomePageMain extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
             iconSize: 26,
             textStyle: const TextStyle(
-              color: Colors.black,
+              color: AppColors.black,
               fontWeight: FontWeight.w600,
             ),
             tabs: const [

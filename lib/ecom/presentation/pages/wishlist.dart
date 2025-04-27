@@ -86,7 +86,7 @@ class WishlistScreen extends StatelessWidget {
                           ),
                         ),
                         subtitle: Text(
-                          "\$${item.price}",
+                          "\₹${item.price}",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,

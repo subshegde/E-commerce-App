@@ -101,10 +101,10 @@ class CartScreen extends StatelessWidget {
                                         ),
                                         const SizedBox(height: 6),
                                         Text(
-                                          "\$${item.product.price}",
+                                          "\₹${item.product.price}",
                                           style: const TextStyle(
                                             fontSize: 16,
-                                            color: Colors.green,
+                                            color: AppColors.green,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -116,7 +116,6 @@ class CartScreen extends StatelessWidget {
 
                               const SizedBox(height: 12),
 
-                              // Quantity Control
                               Container(
                                 height: 36,
                                 width: 120,
@@ -152,7 +151,6 @@ class CartScreen extends StatelessWidget {
 
                               const SizedBox(height: 12),
 
-                              // Buttons
                               Row(
                                 children: [
                                   Expanded(
@@ -170,7 +168,7 @@ class CartScreen extends StatelessWidget {
                                       child: Container(
                                         height: 45,
                                         decoration: BoxDecoration(
-                                          color: Colors.white,
+                                          color: AppColors.white,
                                           border: Border.all(
                                               color: AppColors.grey, width: 1),
                                           borderRadius:
@@ -206,7 +204,7 @@ class CartScreen extends StatelessWidget {
                                       child: Container(
                                         height: 45,
                                         decoration: BoxDecoration(
-                                          color: Colors.white,
+                                          color: AppColors.white,
                                           border: Border.all(
                                               color: AppColors.grey, width: 1),
                                           borderRadius:
@@ -245,37 +243,33 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
 
-                // Bottom total price and checkout section
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white, // White background
+                    color: AppColors.white,
                     boxShadow: [
                       BoxShadow(
                         color:
-                            Colors.black.withOpacity(0.05), // Soft light shadow
+                            AppColors.black.withOpacity(0.05),
                         blurRadius: 10,
-                        offset: const Offset(0, -2), // Only at the top
+                        offset: const Offset(0, -2),
                       ),
                     ],
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Total Price
                       Text(
-                        'Total: \$${cartProvider.totalPrice.toStringAsFixed(2)}',
+                        'Total: \₹${cartProvider.totalPrice.toStringAsFixed(2)}',
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
-                      // Checkout Button
                       ElevatedButton(
                         onPressed: () {
-                          // Implement Checkout functionality
                         },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(
@@ -283,8 +277,8 @@ class CartScreen extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          backgroundColor: Colors.black, // Black button
-                          foregroundColor: Colors.white, // White text
+                          backgroundColor: AppColors.black,
+                          foregroundColor: AppColors.white,
                           elevation: 0,
                         ),
                         child: const Text(

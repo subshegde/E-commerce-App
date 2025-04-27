@@ -18,7 +18,7 @@ class AnotherCarouselEx extends StatelessWidget {
         child: Container(
           height: 170,
           width: double.infinity,
-          color: Colors.white,
+          color: AppColors.white,
           child: AnotherCarousel(
             images: [
               Image.asset(AppImages.offer1, fit: BoxFit.cover),
@@ -27,7 +27,7 @@ class AnotherCarouselEx extends StatelessWidget {
             dotSize: 6,
             dotColor: AppColors.grey600,
             dotIncreasedColor: AppColors.black,
-            dotBgColor: const Color(0xFFEFEFEF),
+            dotBgColor: AppColors.grey200,
             indicatorBgPadding: 5,
           ),
         ),

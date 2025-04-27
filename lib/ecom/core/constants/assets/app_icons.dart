@@ -24,5 +24,7 @@ class AppIcons {
   static const String addToCart = '${baseUrl}add_to_cart$png';
   static const String goCart = '${baseUrl}cart$png';
 
+  static const String noDataFound = '${baseUrl}notfound$png';
+
 
 }

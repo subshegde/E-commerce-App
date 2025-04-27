@@ -1,5 +1,3 @@
-import 'package:another_carousel_pro/another_carousel_pro.dart';
-import 'package:ecom_app/ecom/core/constants/assets/app_images.dart';
 import 'package:ecom_app/ecom/core/constants/theme/app_colors.dart';
 import 'package:ecom_app/ecom/core/lists/icons.dart';
 import 'package:ecom_app/ecom/presentation/widgets/anothercarouselex.dart';
@@ -53,7 +51,6 @@ class _HeaderPartsState extends State<HeaderParts> {
                     imagePath: item['image']!,
                     name: item['name']!,
                     onTap: () {
-                      print('Tapped on ${item['name']}');
                     },
                   );
                 }).toList(),
@@ -115,7 +112,7 @@ class _HeaderPartsState extends State<HeaderParts> {
                   color: AppColors.grey700,
                 ),
                 hintText: "Search..",
-                hintStyle: const TextStyle(color: Colors.black26)),
+                hintStyle: TextStyle(color: AppColors.grey700)),
           )),
           Material(
             color: AppColors.grey600,
@@ -129,7 +126,7 @@ class _HeaderPartsState extends State<HeaderParts> {
                 alignment: Alignment.center,
                 child: const Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: AppColors.white,
                 ),
               ),
             ),
