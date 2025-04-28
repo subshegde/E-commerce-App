@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ecom_app/ecom/core/error/failure.dart';
 import 'package:ecom_app/ecom/domain/entities/product_details_entity.dart';
 import 'package:ecom_app/ecom/domain/repositories/product_details_repo.dart';
-import 'package:ecom_app/ecom/core/usecase/usecase.dart';
+import 'package:ecom_app/ecom/core/usecase/base_use_case.dart';
 
 /// Use case class to fetch product details by product ID
 class GetProductDetailsUseCase implements ProductDetailsUseCase<ProductDetailsEntity> {

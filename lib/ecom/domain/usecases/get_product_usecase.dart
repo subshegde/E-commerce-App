@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecom_app/ecom/core/error/failure.dart';
-import 'package:ecom_app/ecom/core/usecase/usecase.dart';
+import 'package:ecom_app/ecom/core/usecase/base_use_case.dart';
 import 'package:ecom_app/ecom/domain/entities/product_entity.dart';
 import 'package:ecom_app/ecom/domain/repositories/product_repo.dart';
 

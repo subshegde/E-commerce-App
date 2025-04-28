@@ -1,5 +1,5 @@
-import 'package:ecom_app/ecom/data/repositories/product_details_repo_impl.dart';
-import 'package:ecom_app/ecom/data/repositories/product_repo_impl.dart';
+import 'package:ecom_app/ecom/data/repositories_impl/product_details_repo_impl.dart';
+import 'package:ecom_app/ecom/data/repositories_impl/product_repo_impl.dart';
 import 'package:ecom_app/ecom/data/sources/product_details_detasource.dart';
 import 'package:ecom_app/ecom/data/sources/product_remote_datasource.dart';
 import 'package:ecom_app/ecom/domain/repositories/product_details_repo.dart';
