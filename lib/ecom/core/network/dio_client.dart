@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ecom_app/ecom/core/secret/app_secret.dart';
 import 'package:ecom_app/ecom/core/constants/url/app_apiUrl.dart';
 import 'package:ecom_app/ecom/core/network/logger_interceptor.dart';
 
@@ -11,8 +12,8 @@ class DioClient {
       baseUrl: ApiUrl.baseUrl,
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
-        'x-rapidapi-host': ApiUrl.host,
-        'x-rapidapi-key': ApiUrl.key,
+        'x-rapidapi-host': AppSecret.host,
+        'x-rapidapi-key': AppSecret.key,
       },
       responseType: ResponseType.json,
       sendTimeout: const Duration(seconds: 10),

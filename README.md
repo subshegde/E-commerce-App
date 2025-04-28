@@ -63,6 +63,8 @@ lib/
 │   ├── routing/
 │   │   ├── app_navigations.dart
 │   │   └── app_routing.dart
+│   ├── secret/
+│   │   └── app_secret.dart
 │   └── usecase/
 │       └── base_usecase.dart
 │
@@ -83,6 +85,7 @@ lib/
 │
 ├── service_locator.dart  // Dependency Injection (get_it)
 └── main.dart 
+
 ```
 ## 🧰 Packages Used
 
@@ -172,6 +175,7 @@ cd E-commerce-App
 ### 2. **API Key Setup**
 
 This project uses a public API via RapidAPI. Add your RapidAPI key in the appropriate header section inside dio_client.dart:
+Using a .env file with the flutter_dotenv package is a better practice for managing secrets. However, for this demo, I’ve kept it simple.
 ```bash
 
 headers: {
@@ -206,4 +210,4 @@ To ensure your Flutter environment is correctly set up, run the following comman
 flutter doctor
 ```
 
-
+# Happy Coding

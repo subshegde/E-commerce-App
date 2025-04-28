@@ -1,9 +1,6 @@
 class ApiUrl {
   static const baseUrl = 'https://real-time-amazon-data.p.rapidapi.com/';
-  static const host = 'real-time-amazon-data.p.rapidapi.com';
-  // static const key = '440122edc3mshc3a26a18048a22ap1e6aadjsn0f9977e265c8'; // only for demo not for production
-  static const key = 'e9359ed723mshc86a7c4ae0e1427p1933eajsn127ddf6f469c';
-  
+
   // used like this only for demo
   static const String category = 'electronics';
   static const String type = 'BEST_SELLERS';
