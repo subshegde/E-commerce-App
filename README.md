@@ -2,9 +2,15 @@
 
 A full-featured eCommerce app built using **Flutter** with **Provider** for state management, **Clean Architecture** principles, and **Dependency Injection** via `get_it`. This project demonstrates scalable project structure, clean code separation, and modern UI practices.
 
+## Screenshots
 ![image1](https://github.com/user-attachments/assets/62d72515-e55e-4833-a1a4-c188cb395bde)
 ![image2](https://github.com/user-attachments/assets/10686c9b-bd43-4b27-9023-f3d03519c336)
 ![image3](https://github.com/user-attachments/assets/8f2fc8eb-50e9-4c51-91be-049b84e9cf87)
+
+## video
+https://github.com/user-attachments/assets/0206bea9-1b10-4bea-98f2-569a261003ae
+
+
 
 
 ## 🚀 Features
