@@ -175,7 +175,7 @@ cd E-commerce-App
 ### 2. **API Key Setup**
 
 This project uses a public API via RapidAPI. Add your RapidAPI key in the appropriate header section inside dio_client.dart:
-Using a .env file with the flutter_dotenv package is a better practice for managing secrets. However, for this demo, I’ve kept it simple.
+**Using a .env file with the flutter_dotenv package is a better practice for managing secrets. However, for this demo, I’ve kept it simple.**
 ```bash
 
 headers: {
