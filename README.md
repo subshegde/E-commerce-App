@@ -46,45 +46,54 @@ This project uses **Clean Architecture** to promote separation of concerns and m
 
 ```plaintext
 lib/
-├── core/
-│   ├── constants/
-│   │   ├── assets.dart
-│   │   ├── strings.dart
-│   │   ├── theme.dart
-│   │   └── urls.dart
-│   ├── error/
-│   │   ├── exceptions.dart
-│   │   └── failure.dart
-│   ├── messages/
-│   │   └── app_messages.dart
-│   ├── network/
-│   │   ├── dio_client.dart
-│   │   └── logger_interceptor.dart
-│   ├── routing/
-│   │   ├── app_navigations.dart
-│   │   └── app_routing.dart
-│   ├── secret/
-│   │   └── app_secret.dart
-│   └── usecase/
-│       └── base_usecase.dart
+├── core/  
+│   ├── constants/  
+│   │   ├── assets.dart: Holds app-wide asset paths.  
+│   │   ├── strings.dart: Stores static string constants.  
+│   │   ├── theme.dart: Defines app-wide theme constants.  
+│   │   └── urls.dart: Contains URL endpoints.  
+│   ├── error/  
+│   │   ├── exceptions.dart: Defines custom exceptions.  
+│   │   └── failure.dart: Contains failure models for error handling.  
+│   ├── messages/  
+│   │   └── app_messages.dart: Stores app messages (localization or static).  
+│   ├── network/  
+│   │   ├── dio_client.dart: Handles network requests via Dio.  
+│   │   └── logger_interceptor.dart: Logs network requests and responses.  
+│   ├── routing/  
+│   │   ├── app_navigations.dart: Manages app navigation logic.  
+│   │   └── app_routing.dart: Configures and handles app routes.  
+│   ├── secret/  
+│   │   └── app_secret.dart: Contains sensitive or secret keys (should be managed securely).  
+│   └── usecase/  
+│       └── base_usecase.dart: Defines the base class for app use cases.  
 │
-├── data/
-│   ├── models/
-│   ├── repositories_impl/
-│   └── sources/
+├── data/  
+│   ├── models/  
+│   │   └── Defines data models for handling data structures.  
+│   ├── repositories_impl/  
+│   │   └── Implements repository logic to fetch/process data.  
+│   └── sources/  
+│       └── Manages local or remote data sources (API, DB, etc.).  
 │
-├── domain/
-│   ├── entities/
-│   ├── repositories/
-│   └── usecases/
+├── domain/  
+│   ├── entities/  
+│   │   └── Defines core business entities.  
+│   ├── repositories/  
+│   │   └── Defines abstract repositories for data operations.  
+│   └── usecases/  
+│       └── Contains business logic and application use cases.  
 │
-├── presentation/
-│   ├── pages/
-│   ├── provider/
-│   └── widgets/
+├── presentation/  
+│   ├── pages/  
+│   │   └── Contains the app's screen layouts (UI).  
+│   ├── provider/  
+│   │   └── Manages state and business logic for presentation.  
+│   └── widgets/  
+│       └── Defines reusable UI components/widgets.  
 │
-├── service_locator.dart  // Dependency Injection (get_it)
-└── main.dart 
+├── service_locator.dart  // Manages Dependency Injection using 'get_it'.  
+└── main.dart  // App entry point and initialization logic.
 
 ```
 ## 🧰 Packages Used
