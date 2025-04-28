@@ -4,6 +4,7 @@ class AppStrings {
   static const String removeFromCartMessage = 'Item removed from the cart';
   static const String removeBtn = 'Remove';
   static const String buyNowBtn = 'Buy Now';
+  static const String buyThisNowBtn = 'Buy this now';
   static const String checkOut = 'Check Out';
   static const String wishListAppBarTitle = 'Wishlist';
   static const String emptyWishList = 'Your wishlist is empty';
@@ -16,5 +17,8 @@ class AppStrings {
   static const String empBtn = 'Pay with EMI';
   static const String error = 'Error occurred, please try again!';
   static const String notDataFound = 'No data found';
+
+  static const String placeOrder = 'Place Order';
+  static const String moveToCart = 'Move to cart';
 
 }

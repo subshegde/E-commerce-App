@@ -31,7 +31,6 @@ class _ItemsDisplayState extends State<ItemsDisplay> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ProductProvider>(context);
-    final cartProvider = Provider.of<CartProvider>(context);
     final wishlistProvider = Provider.of<WishlistProvider>(context);
 
     final productsToShow =
@@ -50,7 +49,9 @@ class _ItemsDisplayState extends State<ItemsDisplay> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Image.asset(
                     AppIcons.noDataFound,
                     height: 100,
@@ -76,202 +77,144 @@ class _ItemsDisplayState extends State<ItemsDisplay> {
                     shrinkWrap: true,
                     itemCount: productsToShow.length,
                     physics: const NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(1),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 8,
-                      crossAxisSpacing: 8,
-                      mainAxisExtent: 295,
+                      mainAxisSpacing: .5,
+                      crossAxisSpacing: .5,
+                      mainAxisExtent: 235,
                     ),
                     itemBuilder: (context, index) {
                       ProductEntity product = productsToShow[index];
-
                       return GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ProductDetailScreen(
-                                      id: product.id,
-                                    )),
+                              builder: (context) =>
+                                  ProductDetailScreen(id: product.id),
+                            ),
                           );
                         },
                         child: Container(
-                          height: 295,
+                          height: 205,
+                          padding: const EdgeInsets.all(5),
+                          clipBehavior: Clip.hardEdge,
                           decoration: BoxDecoration(
+                            border:
+                                Border.all(width: .2, color: AppColors.grey400),
                             color: AppColors.grey100,
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(0),
                           ),
                           child: Stack(
                             children: [
                               Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const SizedBox(height: 15),
-                                  Center(
+                                  SizedBox(
+                                    height: 150,
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(125),
                                       child: Image.network(
                                         product.image,
-                                        height: 120,
-                                        width: 120,
                                         fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 15),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 15),
-                                    child: Text(
-                                      product.title,
-                                      maxLines: 1,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 19,
-                                        color: AppColors.black,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 15),
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            product.description,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: AppColors.grey700),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 15),
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: AppColors.yellow700,
-                                          size: 20,
-                                        ),
-                                        const SizedBox(width: 5),
-                                        Expanded(
-                                          child: Text(
-                                            product.ratings.toString(),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: AppColors.grey700),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      '\$${product.price}',
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 19,
-                                        color: AppColors.black,
+                                        width: double.infinity,
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
+
                               Positioned(
-                                top: -2,
-                                right: -2,
-                                child: IconButton(
-                                  onPressed: () {
-                                    if (product != null &&
-                                        !wishlistProvider.wishlistItems.any(
-                                            (item) => item.id == product.id)) {
-                                      wishlistProvider.addToWishlist(product);
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        CustomSnackBar.get(
-                                          message:
-                                              AppStrings.addItemToWishListMsg,
-                                        ),
-                                      );
-                                    } else if (product != null) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        CustomSnackBar.get(
-                                          message:
-                                              AppStrings.alreadyinWishlistMsg,
-                                        ),
-                                      );
-                                    }
-                                  },
-                                  icon: Icon(
-                                    Icons.favorite_border,
-                                    color: AppColors.grey500,
+                                  top: -9.2,
+                                  right: -8,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      if (product != null &&
+                                          !wishlistProvider.wishlistItems.any(
+                                              (item) =>
+                                                  item.id == product.id)) {
+                                        wishlistProvider.addToWishlist(product);
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          CustomSnackBar.get(
+                                              message: AppStrings
+                                                  .addItemToWishListMsg),
+                                        );
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          CustomSnackBar.get(
+                                              message: AppStrings
+                                                  .alreadyinWishlistMsg),
+                                        );
+                                      }
+                                    },
+                                    icon: const Icon(
+                                      Icons.favorite_border,
+                                      color: Colors.white,
+                                      size: 16,
+                                    ),
+                                    style: IconButton.styleFrom(
+                                      backgroundColor: AppColors.grey400,
+                                      shape: const CircleBorder(),
+                                      padding: const EdgeInsets.all(4),
+                                      minimumSize: const Size(28, 28),
+                                    ),
+                                  )),
+
+                              // Overlay info on bottom of image
+                              Positioned(
+                                left: 0,
+                                right: 0,
+                                bottom: 00,
+                                child: Container(
+                                  padding: const EdgeInsets.all(12),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.grey100.withOpacity(0.85),
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20),
+                                    ),
                                   ),
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 10,
-                                right: 10,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    if (product != null &&
-                                        !cartProvider.cartItems.any((item) =>
-                                            item.product.id == product.id)) {
-                                      cartProvider.addToCart(product);
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        CustomSnackBar.get(
-                                          message: AppStrings.addItemToCart,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        product.title,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          color: AppColors.black,
                                         ),
-                                      );
-                                    } else if (product != null) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        CustomSnackBar.get(
-                                          message: AppStrings.alreadyinCartMsg,
-                                        ),
-                                      );
-                                    }
-                                  },
-                                  child: Material(
-                                    color: AppColors.primary,
-                                    borderRadius: BorderRadius.circular(10),
-                                    elevation: 4,
-                                    child: Container(
-                                      width: 40,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        color: AppColors.primary,
-                                        borderRadius: BorderRadius.circular(10),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: AppColors.black
-                                                .withOpacity(0.2),
-                                            blurRadius: 8,
-                                            spreadRadius: 1,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '\₹${product.price}',
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16,
+                                              color: AppColors.black,
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          Icon(Icons.star,
+                                              color: AppColors.yellow700,
+                                              size: 18),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            product.ratings.toString(),
+                                            style: TextStyle(
+                                                color: AppColors.grey700),
                                           ),
                                         ],
                                       ),
-                                      child: const Icon(
-                                        Icons.shopping_cart,
-                                        color: AppColors.white,
-                                        size: 30,
-                                      ),
-                                    ),
+                                    ],
                                   ),
                                 ),
                               ),

@@ -60,67 +60,175 @@ class WishlistScreen extends StatelessWidget {
                     return Card(
                       color: AppColors.white,
                       margin: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 15),
+                          vertical: 0, horizontal: 2),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(1),
                       ),
-                      child: ListTile(
-                        contentPadding: const EdgeInsets.all(10),
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            item.image,
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        title: Text(
-                          item.title,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.black,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "\₹${item.price}",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.grey600,
-                          ),
-                        ),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.shopping_cart_outlined),
-                              onPressed: () {
-                                cartProvider.addToCart(item);
-                                wishlistProvider.removeFromWishlist(item);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  CustomSnackBar.get(
-                                    message: AppStrings.movedToCartMes,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 12, right: 12),
+                            child: Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.network(
+                                    item.image,
+                                    width: 80,
+                                    height: 130,
+                                    fit: BoxFit.fitHeight,
                                   ),
-                                );
-                              },
-                            ),
-                            IconButton(
-                              icon: const Icon(Icons.delete_outline),
-                              onPressed: () {
-                                wishlistProvider.removeFromWishlist(item);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  CustomSnackBar.get(
-                                    message: AppStrings.removeItemFromWishList,
+                                ),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        item.title,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
+                                            wordSpacing: 1),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                      ),
+                                      const SizedBox(height: 2),
+                                      Text(
+                                        item.description,
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          color: AppColors.grey700,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                      ),
+                                      const SizedBox(height: 2),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "\₹${item.price}",
+                                            style: const TextStyle(
+                                                fontSize: 18,
+                                                color: AppColors.black,
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: .5),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                );
-                              },
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(height: 3),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    wishlistProvider.removeFromWishlist(item);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      CustomSnackBar.get(
+                                        message:
+                                            AppStrings.removeItemFromWishList,
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.white,
+                                      border: Border(
+                                        top: BorderSide(
+                                            color: AppColors.grey200, width: 1),
+                                        right: BorderSide(
+                                            color: AppColors.grey200, width: 1),
+                                        left: BorderSide(
+                                            color: AppColors.grey200,
+                                            width: .5),
+                                      ),
+                                      borderRadius: BorderRadius.circular(1),
+                                    ),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.delete,
+                                            color: AppColors.grey500,
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Text(
+                                            AppStrings.removeBtn,
+                                            style: TextStyle(
+                                                color: AppColors.grey600,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 1),
+                              Expanded(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    cartProvider.addToCart(item);
+                                    wishlistProvider.removeFromWishlist(item);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      CustomSnackBar.get(
+                                        message: AppStrings.movedToCartMes,
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.white,
+                                      border: Border(
+                                        top: BorderSide(
+                                            color: AppColors.grey200, width: 1),
+                                        right: BorderSide(
+                                            color: AppColors.grey200,
+                                            width: .5),
+                                        left: BorderSide(
+                                            color: AppColors.grey200, width: 1),
+                                      ),
+                                      borderRadius: BorderRadius.circular(1),
+                                    ),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.shopping_cart_checkout,
+                                            color: AppColors.grey500,
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Text(
+                                            AppStrings.moveToCart,
+                                            style: TextStyle(
+                                                color: AppColors.grey600,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     );
                   },
