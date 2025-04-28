@@ -28,13 +28,11 @@ class ProductDetailsProvider with ChangeNotifier {
         _errorMessage = failure.message;
         _isLoading = false;
         notifyListeners();
-        print("Error: ${_errorMessage}"); // Log error
       },
       (productDetail) {
         _productDetail = productDetail;
         _isLoading = false;
-        notifyListeners();
-        print("Product fetched: ${_productDetail!.productPhoto}"); // Log product data
+        notifyListeners(); // notify changes
       },
     );
   }

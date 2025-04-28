@@ -16,6 +16,8 @@ class ProductProvider with ChangeNotifier {
   String _errorMessage = '';
   String get errorMessage => _errorMessage;
 
+
+// to fetch the products
   Future<void> fetchProducts() async {
     _isLoading = true;
     notifyListeners();
@@ -24,14 +26,14 @@ class ProductProvider with ChangeNotifier {
 
     result.fold(
       (failure) {
-        _errorMessage = failure.message; // <--- here
+        _errorMessage = failure.message;
         _isLoading = false;
-        notifyListeners();
+        notifyListeners(); // notify to the ui after getting error
       },
       (productsList) {
         _products = productsList;
         _isLoading = false;
-        notifyListeners();
+        notifyListeners();  // notify to the ui after getting product list
       },
     );
   }
